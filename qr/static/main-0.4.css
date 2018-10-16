@@ -1,0 +1,40 @@
+body {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+
+    font-size: 2em;
+}
+
+.d-flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.d-flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.no-outline {
+    outline: none;
+}
+
+.border-bot {
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.main-font {
+    font-family: 'VT323', monospace;
+}
+
+.mids {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.2em;
+}
