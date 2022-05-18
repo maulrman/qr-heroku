@@ -3,7 +3,8 @@
 {% block body %}
 <article class="main-font mids">
   <p>{{ context.data }}</p>
-  <img src="{{ url_for('serve_qr', data=context.data) }}" alt="qr code">
+  <!-- <img src="{{ url_for('serve_qr', data=context.data) }}" alt="qr code"> -->
+  <img src="{{ url_for('gen_qr', data=context.data) }}" alt="generated qr code">
   <p>right click --> save image as --> save</p>
   <a href="{{ url_for('index') }}">qrify another</a>
 </article>

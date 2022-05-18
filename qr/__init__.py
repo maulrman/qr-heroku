@@ -1,3 +1,4 @@
+import mimetypes
 import os
 import qrcode
 from io import BytesIO
@@ -18,6 +19,14 @@ def index():
 @app.route('/qr/<data>')
 def serve_qr(data):
     img = qrcode.make(data)
+    img_io = BytesIO()
+    img.save(img_io, 'PNG')
+    img_io.seek(0)
+    return send_file(img_io, mimetype='image/png')
+
+@app.route('/qr')
+def gen_qr(data):
+    img = qrcode.make(request.args.get('data'))
     img_io = BytesIO()
     img.save(img_io, 'PNG')
     img_io.seek(0)
