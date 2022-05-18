@@ -25,16 +25,16 @@ def serve_qr(data):
     return send_file(img_io, mimetype='image/png')
 
 @app.route('/qr')
-def gen_qr(data):
+def gen_qr():
     img = qrcode.make(request.args.get('data'))
     img_io = BytesIO()
     img.save(img_io, 'PNG')
     img_io.seek(0)
     return send_file(img_io, mimetype='image/png')
 
-@app.route('/qrify/<data>')
-def qrify(data):
+@app.route('/qrify')
+def qrify():
     context = {
-        'data': data,
+        'data': request.args.get('data'),
     }
     return render_template('qrify.html', context=context)
